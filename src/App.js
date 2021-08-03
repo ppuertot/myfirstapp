@@ -5,6 +5,7 @@ import tasks from './sample/tasks.json';
 
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
+import Posts from './components/Posts';
 
 class App extends React.Component {
 
@@ -35,7 +36,8 @@ class App extends React.Component {
     return <h1>
       <TaskForm addTask={this.addTask} />
       <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} />
-    </h1>;
+      <Posts/>
+    </h1>
   }
 }
 
