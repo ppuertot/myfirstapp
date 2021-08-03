@@ -24,10 +24,17 @@ class App extends React.Component {
     });
   }
 
+  deleteTask = (id) => {
+    const newTasks = this.state.tasks.filter(task => task.id !== id)
+    this.setState({tasks: newTasks});
+  }
+
+  checkDone = () => {}
+
   render() {
     return <h1>
       <TaskForm addTask={this.addTask} />
-      <Tasks tasks={this.state.tasks} />
+      <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} />
     </h1>;
   }
 }

@@ -8,6 +8,7 @@ class Task extends Component {
             {task.description} - 
             {task.done} - 
             {task.id}
+            <button onClick={this.props.deleteTask.bind(this, task.id)}>x</button>
         </div>;
     }
 }
