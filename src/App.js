@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import tasks from './sample/tasks.json';
+
+import Tasks from './components/Tasks';
+import TaskForm from './components/TaskForm';
+
+class App extends React.Component {
+
+  state = {
+    tasks: tasks
+  }
+
+  render() {
+    return <h1>
+      <TaskForm/>
+      <Tasks tasks={this.state.tasks} />
+    </h1>;
+  }
 }
 
 export default App;
