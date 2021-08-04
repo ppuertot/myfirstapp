@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {headers, url} from '../headers';
 
 class AseguradoraForm extends Component {
 
@@ -7,9 +8,9 @@ class AseguradoraForm extends Component {
         telefono: ''
     }
 
-    onSubmit = (e) => {
+    onSubmit = e => {
         const aseguradora = {nombre: this.state.nombre, telefono: this.state.telefono};
-        this.props.addAseguradora(aseguradora);
+        this.addAseguradora(aseguradora);
         e.preventDefault();
     }
 
@@ -17,6 +18,17 @@ class AseguradoraForm extends Component {
         this.setState({
             [e.target.name]: e.target.value
         });
+    }
+
+    addAseguradora = async (aseguradora) => {
+        const res = await fetch(url + '/api/aseguradoras/', { 
+            method: 'POST', 
+            headers: headers, 
+            body: JSON.stringify(aseguradora)
+        })
+        if (res.status === 201) {
+            this.props.reload();
+        }
     }
 
     render() {
