@@ -8,6 +8,7 @@ import tasks from './sample/tasks.json';
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
 import Posts from './components/Posts';
+import Aseguradoras from './components/Aseguradoras';
 
 class App extends React.Component {
 
@@ -37,9 +38,11 @@ class App extends React.Component {
   render() {
     return <div>
       <BrowserRouter>
-        <Link to="/">Home</Link>
-        <br></br>
-        <Link to="/posts">Posts</Link>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/posts">Posts</Link></li>
+          <li><Link to="/aseguradoras">Aseguradoras</Link></li>
+        </ul>
         <Route exact path="/" render={() => {
           return <div>
             <h1>Home</h1>
@@ -49,6 +52,8 @@ class App extends React.Component {
         }}>
         </Route>
         <Route path="/posts" component={Posts}>
+        </Route>
+        <Route path="/aseguradoras" component={Aseguradoras}>
         </Route>
       </BrowserRouter>
     </div>
