@@ -20,7 +20,6 @@ export default class Aseguradoras extends Component {
             headers: headers, 
             body: JSON.stringify(aseguradora)
         })
-        console.log(res1.status);
         if (res1.status === 201) {
             const res2 = await fetch(url + '/api/aseguradoras/', { headers:headers });
             let aseguradoras = await res2.json();
@@ -40,6 +39,13 @@ export default class Aseguradoras extends Component {
                 })
             }
             </ul>
+            <select>
+                {
+                    this.state.aseguradoras.map(aseguradora => {
+                        return <option value={aseguradora.id}>{aseguradora.nombre}</option>
+                    })
+                }            
+            </select> 
         </div>
         )
     }
