@@ -42,7 +42,7 @@ export default class Aseguradoras extends Component {
             <select>
                 {
                     this.state.aseguradoras.map(aseguradora => {
-                        return <option value={aseguradora.id}>{aseguradora.nombre}</option>
+                        return <option key={aseguradora.id} value={aseguradora.id}>{aseguradora.nombre}</option>
                     })
                 }            
             </select> 
